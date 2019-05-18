@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Potepan::ProductsController, type: :controller do
   describe "#show" do
     let(:product) { create(:base_product) }
+
     before { get :show, params: { id: product.id } }
 
     it 'has a 200 status code' do
