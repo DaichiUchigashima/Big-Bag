@@ -6,6 +6,10 @@ RSpec.describe Potepan::ProductsController, type: :controller do
 
     before { get :show, params: { id: product.id } }
 
+    it 'assigns @product' do
+      expect(assigns(:product)).to eq product
+    end
+
     it 'has a 200 status code' do
       expect(response).to have_http_status 200
     end
