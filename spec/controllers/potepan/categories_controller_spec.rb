@@ -4,6 +4,7 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
   describe "#show" do
     let(:taxonomy) { create(:taxonomy) }
     let(:taxon) { create(:taxon, taxonomy: taxonomy) }
+    let(:product) { create(:product, taxons: [taxon]) }
 
     before { get :show, params: { id: taxon.id } }
 
