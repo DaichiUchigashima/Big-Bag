@@ -24,7 +24,7 @@ RSpec.feature "Categories", type: :feature do
 
     scenario "Get reactions from each buttons to move to correct pages when you click on each buttons of categories" do
       click_on taxon.name
-      expect(page.current_path). to eq potepan_category_path(taxon.id)
+      expect(page.current_path).to eq potepan_category_path(taxon.id)
       expect(page).to have_title "#{taxon.name} - BIGBAG Store"
       expect(page).to have_content taxonomy.name
     end
