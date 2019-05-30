@@ -23,5 +23,9 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
     it 'assigns @taxonomies' do
       expect(assigns(:taxonomies)).to match_array(taxonomy)
     end
+
+    it 'assigns @products' do
+      expect(assigns(:products)).to match_array(product)
+    end
   end
 end
