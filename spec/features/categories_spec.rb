@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Categories", type: :feature do
   feature "general view" do
     given(:taxonomy) { create(:taxonomy) }
-    given(:taxon_root) { taxonomy.root}
+    given(:taxon_root) { taxonomy.root }
     given!(:taxon) { create(:taxon, taxonomy: taxonomy, parent: taxon_root) }
     given!(:product) { create(:product, taxons: [taxon]) }
 
