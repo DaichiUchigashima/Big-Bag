@@ -35,11 +35,8 @@ RSpec.feature "Categories", type: :feature do
       expect(page).to have_title "#{product.name} - BIGBAG Store"
       expect(page).to have_content product.name
       expect(page).to have_content product.display_price
-
-      #within ".productBox" do
-        #expect(page).to have_content product.display_image
-      #end
-
+      uri = URI.parse(current_url)
+      expect("#{uri.path}#{uri.query}").to eq potepan_product_path(product.id)
     end
   end
 end
