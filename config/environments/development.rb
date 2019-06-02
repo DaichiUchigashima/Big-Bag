@@ -64,4 +64,13 @@ Rails.application.configure do
 
   # add white list ips under Docker
   config.web_console.whitelisted_ips = '0.0.0.0/0'
+
+  config.after_initialize do
+    Bullet.enable = true # Bulletを有効化
+    Bullet.alert = true # JavaScriptのポップアップアラートを有効化
+    Bullet.bullet_logger = true # log/bullet.logへの出力
+    Bullet.console = true # ブラウザのコンソールログに出力
+    Bullet.rails_logger = true # Railsログに出力
+    Bullet.add_footer = true # ページの左下に結果を表示
+  end
 end

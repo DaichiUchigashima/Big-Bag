@@ -1,0 +1,17 @@
+<% provide(:title, "#{@taxon.name} - BIGBAG Store") %>
+<div class="main-wrapper">
+  <!-- LIGHT SECTION -->
+  <%= render 'shared/light_section_header', taxon: @taxon %>
+  <!-- MAIN CONTENT SECTION -->
+  <section class="mainContent clearfix productsContent">
+    <div class="container">
+      <div class="row">
+        <%= render 'sidebar', taxonomies: @taxonomies %>
+        <%= render 'filter_area', taxon: @taxon %>
+        <%= render 'product_box', products: @products %>
+      </div>
+    </div>
+  </section>
+  <!-- LIGHT SECTION -->
+  <%= render 'shared/light_section_partners_logo' %>
+</div>
