@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Potepan::ProductsController, type: :controller do
   describe "#show" do
     let(:taxon) { create(:taxon) }
-    let(:product) { create(:product) }
-    let(:related_products) { create_list(:product, 9) }
+    let(:product) { create(:product, taxons: taxon) }
+    let(:related_products) { create_list(:product, 9, taxons: taxon) }
 
     before { get :show, params: { id: product.id } }
 
@@ -22,7 +22,7 @@ RSpec.describe Potepan::ProductsController, type: :controller do
 
     it 'assigns @related_products' do
       expect(assigns(:related_products)).to eq related_products[0..7]
-      #without corrected item in the carousel
+      #without already selected item in the carousel
       expect(assigns(:related_products)).not_to include(product)
     end
   end
