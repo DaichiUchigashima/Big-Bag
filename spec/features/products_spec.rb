@@ -16,7 +16,7 @@ RSpec.feature "Products", type: :feature do
   end
 
   scenario "Show details of each information for related products" do
-    within 'related_products' do
+    within 'row productsContent' do
       expect(page).to have_content related_products.name
       expect(page).to have_content related_products.display_price
       expect(page).to have_content related_products.description
