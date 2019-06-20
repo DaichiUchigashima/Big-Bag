@@ -22,7 +22,7 @@ RSpec.describe Potepan::ProductsController, type: :controller do
 
     it 'assigns @related_products' do
       expect(assigns(:related_products)).to eq related_products[0..7]
-      #without already selected item in the carousel
+      # without already selected item in the carousel
       expect(assigns(:related_products)).not_to include(product)
     end
   end
