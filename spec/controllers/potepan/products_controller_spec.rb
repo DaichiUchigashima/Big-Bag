@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Potepan::ProductsController, type: :controller do
   describe "#show" do
-    let(:taxon) { create(:taxon) }
+    let!(:taxon) { create(:taxon) }
     let!(:product) { create(:product, taxons: [taxon]) }
     let!(:related_products) { create_list(:product, 9, taxons: [taxon]) }
 
