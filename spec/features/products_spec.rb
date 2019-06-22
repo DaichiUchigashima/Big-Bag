@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Products", type: :feature do
   given!(:taxon) { create(:taxon) }
   given!(:product) { create(:product, taxons: [taxon]) }
-  given!(:related_products) { create_list(:product, taxons: [taxon]) }
+  given!(:related_products) { create(:product, taxons: [taxon]) }
 
   before { visit potepan_product_path(product.id) }
 
@@ -16,16 +16,14 @@ RSpec.feature "Products", type: :feature do
   end
 
   scenario "Show details of each information for related products" do
-    related_products.each do |related_product|
-      within '.productsContent' do
-        expect(page).to have_content related_product.name
-        expect(page).to have_content related_product.display_price
-      end
+    within '.productsContent' do
+      expect(page).to have_content related_products.name
+      expect(page).to have_content related_products.display_price
     end
   end
 
   scenario "Move to correct product page when you click on each products in the product_box" do
-    click_on related_products.first.name
-    expect(page.current_path).to eq potepan_product_path(related_products.first.id)
+    click_on related_products.name
+    expect(page.current_path).to eq potepan_product_path(related_products.id)
   end
 end
