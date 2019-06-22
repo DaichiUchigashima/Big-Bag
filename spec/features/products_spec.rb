@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Products", type: :feature do
   given!(:taxon) { create(:taxon) }
   given!(:product) { create(:product, taxons: [taxon]) }
-  given!(:related_products) { create_list(:product, 9, taxons: [taxon]) }
+  given!(:related_products) { create_list(:product, taxons: [taxon]) }
 
   before { visit potepan_product_path(product.id) }
 
