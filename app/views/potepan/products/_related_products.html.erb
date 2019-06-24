@@ -6,7 +6,7 @@
   </div>
   <div class="col-xs-12">
     <div class="productBox owl-carousel featuredProductsSlider">
-      <% @related_products.each do |related_product| %>
+      <% related_products.each do |related_product| %>
         <%= link_to potepan_product_path(related_product.id) do %>
           <div class="slide">
             <div class="productImage clearfix">

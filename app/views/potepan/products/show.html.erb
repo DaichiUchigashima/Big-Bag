@@ -70,7 +70,7 @@
         </div>
       </div>
       <!-- RELATED PRODUCTS -->
-      <%= render 'related_products' %>
+      <%= render partial: 'related_products', locals: {related_products: @related_products} %>
     </div>
   </section>
 </div>
