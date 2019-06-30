@@ -3,16 +3,14 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: ruby:2.4.6
+image: ruby:2.5.1
 
 pipelines:
   default:
     - step:
-        caches:
-          - bundler
-        script: # Modify the commands below to build your repository.
-          - bundle install
-
-definitions:
-  caches:
-    bundler: ./vendor
+        # set HEROKU_API_KEY and HEROKU_APP_NAME environment variables
+        # set clone `depth: full' as described here: https://confluence.atlassian.com/x/Y9-5Mw
+        name: Deploy to Heroku
+        # trigger: manual  # uncomment to have a manual step
+        script:
+          - git push https://heroku:$3a8f3a0b-a3d1-411c-9891-3e6c1b63e555@git.heroku.com/$still-reef-95756.git HEAD
