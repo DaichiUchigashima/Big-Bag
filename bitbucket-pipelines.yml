@@ -11,6 +11,7 @@ pipelines:
         # set HEROKU_API_KEY and HEROKU_APP_NAME environment variables
         # set clone `depth: full' as described here: https://confluence.atlassian.com/x/Y9-5Mw
         name: Deploy to Heroku
+        deployment: production
         # trigger: manual  # uncomment to have a manual step
         script:
           - git push https://heroku:$3a8f3a0b-a3d1-411c-9891-3e6c1b63e555@git.heroku.com/$still-reef-95756.git HEAD
